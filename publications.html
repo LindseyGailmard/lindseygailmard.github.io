@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications | Lindsey A. Gailmard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff;
+  --panel:#ffffff;
+  --ink:#1c2530;
+  --ink-soft:#4b5563;
+  --hairline:#000000;
+  --hairline-soft:#e0e0e0;
+  --brass:#22406e;
+  --brass-soft:#5b7fa9;
+  --tag-methods:#175E54;
+  --tag-policy:#8C1515;
+  --tag-compliance:#006CB8;
+  --tag-adjudication:#53284F;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass-soft); color:#fff;}
+a{color:inherit;}
+
+/* ---------- TOP NAV ---------- */
+.topnav{border-bottom:1px solid var(--hairline);}
+.topnav-inner{
+  max-width:1240px;
+  margin:0 auto;
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.topnav-name{
+  font-family:'Source Serif 4',serif;
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  color:var(--ink);
+}
+.topnav-links{
+  display:flex;
+  gap:24px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.topnav-links a{
+  text-decoration:none;
+  color:var(--ink-soft);
+  border-bottom:1px solid transparent;
+  padding-bottom:2px;
+  transition:color .15s ease, border-color .15s ease;
+}
+.topnav-links a:hover, .topnav-links a.current{
+  color:var(--brass);
+  border-bottom-color:var(--brass);
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:56px 40px 36px;
+  max-width:1240px;
+  margin:0 auto;
+  border-bottom:1px solid var(--hairline);
+}
+.hero-eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+.hero-eyebrow::before{
+  content:"";
+  width:22px;height:1px;background:var(--brass);
+  display:inline-block;
+}
+h1{
+  font-family:'Source Serif 4',serif;
+  font-weight:600;
+  font-size:clamp(30px,4vw,50px);
+  line-height:1.1;
+  margin:0 0 16px;
+  letter-spacing:-.01em;
+  max-width:20ch;
+}
+h1 em{font-style:italic; color:var(--brass);}
+.hero-sub{
+  font-size:16.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:66ch;
+  margin:0 0 26px;
+}
+.hero-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  border-top:1px solid var(--hairline);
+  margin-top:8px;
+}
+.stat{
+  padding:16px 28px 4px 0;
+  margin-right:28px;
+  border-right:1px solid var(--hairline);
+}
+.stat:last-child{border-right:none;}
+.stat-num{
+  font-family:'Source Serif 4',serif;
+  font-size:26px;
+  font-weight:600;
+  color:var(--ink);
+  display:block;
+}
+.stat-label{
+  font-size:11.5px;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+/* ---------- LAYOUT ---------- */
+.layout{
+  max-width:1240px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:0;
+  align-items:start;
+}
+.sidebar{
+  position:sticky;
+  top:0;
+  align-self:start;
+  padding:32px 24px 40px 40px;
+  height:100vh;
+  overflow-y:auto;
+}
+.sidebar::-webkit-scrollbar{width:6px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--hairline-soft);border-radius:3px;}
+
+.search-wrap{margin-bottom:28px;}
+.search-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+  margin-bottom:8px;
+  display:block;
+}
+#search{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--hairline);
+  background:var(--panel);
+  border-radius:4px;
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .15s ease;
+}
+#search:focus{border-color:var(--brass);}
+
+nav.toc{border-top:1px solid var(--hairline); padding-top:20px;}
+.toc-title{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+  margin-bottom:12px;
+  display:block;
+}
+.toc-item{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:9px 10px;
+  margin:0 -10px 2px;
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+  border-left:2px solid transparent;
+  transition:background .15s ease, border-color .15s ease;
+}
+.toc-item:hover{background:rgba(34,64,110,.08);}
+.toc-item.active{
+  border-left:2px solid var(--brass);
+  background:rgba(34,64,110,.1);
+}
+.toc-num{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--brass);
+  flex-shrink:0;
+  width:16px;
+}
+.toc-label{
+  font-size:13.5px;
+  line-height:1.35;
+  color:var(--ink);
+  flex:1;
+}
+.toc-count{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--ink-soft);
+  flex-shrink:0;
+}
+
+/* sidebar profile block used on About page */
+.profile-block{margin-bottom:28px;}
+.profile-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border:1px solid var(--hairline);
+  border-radius:4px;
+  margin-bottom:16px;
+}
+.profile-contact{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.profile-contact a{
+  text-decoration:none;
+  border-bottom:1px solid var(--hairline-soft);
+  color:var(--ink);
+  width:fit-content;
+}
+.profile-contact a:hover{border-bottom-color:var(--brass); color:var(--brass);}
+
+/* ---------- MAIN ---------- */
+main{
+  padding:32px 40px 120px 32px;
+  border-left:1px solid var(--hairline);
+  min-height:100vh;
+}
+.group-section{margin-bottom:56px;scroll-margin-top:24px;}
+.group-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:6px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--hairline);
+}
+.group-index{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  color:var(--brass);
+}
+.group-title{
+  font-family:'Source Serif 4',serif;
+  font-size:24px;
+  font-weight:600;
+  margin:0;
+}
+.group-desc{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin:10px 0 20px;
+  max-width:70ch;
+  line-height:1.55;
+}
+
+.prose{max-width:70ch;}
+.prose p{
+  font-size:15.5px;
+  line-height:1.7;
+  color:var(--ink);
+  margin:0 0 16px;
+}
+.prose p:last-child{margin-bottom:0;}
+
+.interests-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.interests-list li{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  border:1px solid var(--hairline);
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+.cv-download{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  border:1px solid var(--ink);
+  color:var(--ink);
+  padding:11px 18px;
+  border-radius:4px;
+  text-decoration:none;
+  transition:all .15s ease;
+}
+.cv-download:hover{background:var(--ink); color:#fff;}
+
+/* ---------- PUBLICATION ENTRIES ---------- */
+.pub-list{display:flex;flex-direction:column;}
+.pub{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:18px;
+  padding:20px 4px;
+  border-bottom:1px solid var(--hairline-soft);
+}
+.pub:last-child{border-bottom:none;}
+.pub-date{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--ink-soft);
+  padding-top:2px;
+}
+.pub-authors{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin:0 0 4px;
+}
+.pub-authors .me{color:var(--ink); font-weight:600;}
+.pub-title{
+  font-family:'Source Serif 4',serif;
+  font-size:16.5px;
+  font-weight:600;
+  line-height:1.4;
+  margin:0 0 5px;
+}
+.pub-venue{
+  font-size:13.5px;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin:0 0 8px;
+}
+.pub-meta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:8px;
+}
+.tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  padding:2px 7px;
+  border-radius:3px;
+  color:#fff;
+}
+.tag-status{background:var(--brass);}
+.pub-links{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  display:flex;
+  gap:14px;
+  margin-bottom:8px;
+}
+.pub-links a{
+  color:var(--brass);
+  text-decoration:none;
+  border-bottom:1px solid rgba(34,64,110,.35);
+}
+.pub-links a:hover{border-bottom-color:var(--brass);}
+.pub-abstract{
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:1.65;
+  margin:6px 0 0;
+}
+
+.empty-state{
+  padding:60px 0;
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:14px;
+}
+
+footer{
+  max-width:1240px;
+  margin:0 auto;
+  padding:28px 40px 60px;
+  border-top:1px solid var(--hairline);
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-family:'IBM Plex Mono',monospace;
+}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{position:relative;height:auto;padding:24px 20px 0;}
+  main{border-left:none;padding:24px 20px 100px;}
+  .hero{padding:40px 20px 28px;}
+  .pub{grid-template-columns:1fr;gap:4px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-name" href="index.html">Lindsey A. Gailmard</a>
+    <div class="topnav-links">
+      <a href="index.html">About</a>
+      <a href="publications.html" class="current">Publications</a>
+      <a href="files/cv.pdf">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Research</div>
+  <h1>Publications</h1>
+  <p class="hero-sub">Publications, working papers, and papers in progress, on administrative law, bureaucratic politics, and AI governance.</p>
+  <div class="hero-stats" id="stats"></div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="search-wrap">
+      <label class="search-label" for="search">Search</label>
+      <input id="search" type="text" placeholder="e.g. removals, veterans, AI&hellip;" autocomplete="off">
+    </div>
+    <nav class="toc" id="toc">
+      <span class="toc-title">Sections</span>
+    </nav>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<footer>
+  Regulation, Evaluation, and Governance Lab &middot; Stanford Law School &middot; 559 Nathan Abbott Way &middot; Stanford, CA 94305
+</footer>
+
+<script id="pubdata" type="application/json">
+{
+  "groups": {
+    "P": "Publications",
+    "W": "Working Papers",
+    "I": "In Progress"
+  },
+  "pubs": [
+    {
+      "authors": "<span class=\"me\">Lindsey A. Gailmard</span>, Drew Spence, Christie Lawrence, and Daniel E. Ho.",
+      "title": "Known Unknowns and Unknown Unknowns: Designing a Scalable Adverse Event Reporting System for AI",
+      "venue": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society, 8(2), 1004\u20131017.",
+      "year": "2025",
+      "group": "P",
+      "links": [{"label":"Article","url":"https://ojs.aaai.org/index.php/AIES/article/view/36607"},{"label":"Policy brief","url":"https://hai.stanford.edu/assets/files/hai-reglab-issue-brief-adverse-event-reporting-for-ai.pdf"}],
+      "abstract": ""
+    },
+    {
+      "authors": "Vyoma Raman, Judy Hanwen Shen, Andy K. Zhang, <span class=\"me\">Lindsey Gailmard</span>, Rishi Bommasani, Daniel E. Ho, and Angelina Wang.",
+      "title": "Disclosure and Evaluation as Fairness Interventions for General-Purpose AI",
+      "venue": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society, 8(3), 2121\u20132135.",
+      "year": "2025",
+      "group": "P",
+      "links": [{"label":"Article","url":"https://ojs.aaai.org/index.php/AIES/article/view/36700"}],
+      "abstract": ""
+    },
+    {
+      "authors": "Faiz Surani, <span class=\"me\">Lindsey A. Gailmard</span>, Allison Casasola, Varun Magesh, Emily J. Robitschek, and Daniel E. Ho.",
+      "title": "What Is the Law? A System for Statutory Research (STARA) with Large Language Models",
+      "venue": "20th International Conference on Artificial Intelligence and Law (ICAIL 2025), June 16\u201320, 2025.",
+      "year": "2025",
+      "group": "P",
+      "links": [{"label":"PDF","url":"https://www.lgailmard.com/_files/ugd/d6bcbb_7c3c1be451d048d0a850e3c116710773.pdf"}],
+      "abstract": ""
+    },
+    {
+      "authors": "<span class=\"me\">Lindsey Gailmard</span>, Daniel E. Ho, and Mark S. Krass.",
+      "title": "Congressional Intervention in Agency Adjudication: The Case of Veterans Appeals",
+      "venue": "Yale Law Journal 137 (7): 2461\u20132577.",
+      "year": "2025",
+      "group": "P",
+      "links": [{"label":"Article","url":"https://www.yalelawjournal.org/feature/congressional-intervention-in-agency-adjudication-the-case-of-veterans-appeals"}],
+      "abstract": ""
+    },
+    {
+      "authors": "<span class=\"me\">Lindsey Gailmard</span>.",
+      "title": "The Politics of Presidential Removals",
+      "venue": "Journal of Law, Economics, &amp; Organization 41 (2): 604\u2013633.",
+      "year": "2025",
+      "group": "P",
+      "links": [{"label":"Article","url":"https://academic.oup.com/jleo/advance-article-abstract/doi/10.1093/jleo/ewae006/7610770"}],
+      "abstract": ""
+    },
+    {
+      "authors": "Neel Guha, Christie Lawrence, <span class=\"me\">Lindsey A. Gailmard</span>, Kit Rodolfa, Faiz Surani, Rishi Bommasani, Inioluwa Raji, Mariano-Florentino Cu\u00e9llar, Colleen Honigsberg, Percy Liang, and Daniel E. Ho.",
+      "title": "AI Regulation Has Its Own Alignment Problem: The Technical and Institutional Feasibility of Disclosure, Registration, Licensing, and Auditing",
+      "venue": "George Washington Law Review 92 (6): 1473\u20131557.",
+      "year": "2024",
+      "group": "P",
+      "links": [{"label":"PDF","url":"https://www.gwlr.org/wp-content/uploads/2024/12/92-Geo.-Wash.-L.-Rev.-1473.pdf"},{"label":"Policy brief","url":"https://hai.stanford.edu/policy-brief-ai-regulatory-alignment-problem"}],
+      "abstract": ""
+    },
+    {
+      "authors": "<span class=\"me\">Lindsey Gailmard</span>.",
+      "title": "Electoral Accountability and Political Competence",
+      "venue": "Journal of Theoretical Politics 34 (2): 236\u2013261.",
+      "year": "2022",
+      "group": "P",
+      "links": [{"label":"Article","url":"https://journals.sagepub.com/doi/abs/10.1177/09516298221081809"}],
+      "abstract": ""
+    },
+    {
+      "authors": "",
+      "title": "Reputation and Capture",
+      "venue": "R&amp;R, Journal of Law, Economics, &amp; Organization",
+      "year": "",
+      "group": "W",
+      "status": "R&R",
+      "links": [{"label":"PDF","url":"https://www.lgailmard.com/_files/ugd/d6bcbb_698c0b3816e3421f896d7476e2d09133.pdf"}],
+      "abstract": "Presidents rely on their political appointees to manage the bureaucracy on their behalf. Appointees often know more about their organizations than the president and, therefore, may be better positioned to generate bureaucratic support for the president\u2019s agenda. Yet, bureaucratic cooperation may be easier for appointees to sustain the more policy reflects the views of careerists tasked with implementation. I consider a model in which an appointee dictates a policy that a bureaucrat exerts effort to implement. The president is uncertain of both her appointee\u2019s management skill and the difficulty of the management problem her appointee faces. Instead, the president must infer the appointee\u2019s skill by observing his policy choice and whether implementation was successful. In equilibrium, both talented and weak appointees may give additional policy concessions to bureaucrats to ensure bureaucratic cooperation and improve their reputation with the president. This incentive exists even when the appointee shares the president\u2019s policy preferences. The results highlight fundamental strategic limitations of administrative tools to preserve presidential control over the bureaucracy."
+    },
+    {
+      "authors": "with Sean Gailmard",
+      "title": "The Persistence and Fragility of Bureaucratic Capacity",
+      "venue": "Under review",
+      "year": "",
+      "group": "W",
+      "status": "Under review",
+      "links": [{"label":"PDF","url":"https://www.lgailmard.com/_files/ugd/d6bcbb_f7f5d620727a4b1b81746e46f7c35cc9.pdf"}],
+      "abstract": "Political manipulation of bureaucratic agencies can undermine their capacity. Yet the dynamic effects of political management on bureaucratic capacity are not well understood. To address this question we develop a formal model of bureaucratic capacity as a team production process, with self-selection into bureaucracy by overlapping generations of agents. The model reveals four fundamental insights. First, high capacity requires shared expectations by skilled agents that other skilled agents will pursue bureaucratic careers. Second, capacity can be fragile: transitory political manipulation can change selection into an agency and, in turn, degrade its long-term capacity. Third, high-capacity bureaucracies are especially vulnerable to long-term undermining through short-term political manipulation, whereas medium-capacity bureaucracies are more resistant. Fourth, effects of short-term political manipulation can be mitigated by increasing transferability of skills between agencies and other career options, though this will typically increase \u201crevolving door\u201d career paths."
+    },
+    {
+      "authors": "with Christina Kinane",
+      "title": "Hollow Consent: Redefining the Power Balance in Confirmation Bargaining",
+      "venue": "",
+      "year": "",
+      "group": "W",
+      "links": [],
+      "abstract": "Separation of powers designates the Senate as the primary check on presidents\u2019 singular preferences for who will manage the executive branch. Yet, when presidents can choose their own acting appointees to fill vacant positions, they unilaterally manipulate the cost of confirmation delay by determining a new status quo. We argue that the president\u2019s strategic selection of acting appointees fundamentally alters the balance of power in confirmation bargaining. This ultimately undermines the Senate\u2019s function to provide advice and consent and alters how the Senate exercises its ostensible veto power. We develop and analyze a new model of confirmation dynamics that explicitly integrates the president\u2019s first-mover advantage and the constraint it creates for the Senate\u2019s leverage over nomination decisions. Our findings offer a new understanding of confirmation decisions and delay that more accurately reflects the full range of the president\u2019s unilateral authority in controlling the administrative state."
+    },
+    {
+      "authors": "with Daniel E. Ho",
+      "title": "When Do Statutes Bind? Rethinking Congressional Control of the Bureaucracy",
+      "venue": "Under review",
+      "year": "",
+      "group": "W",
+      "status": "Under review",
+      "links": [],
+      "abstract": "The canonical theory of congressional control of the bureaucracy posits that administrative procedures can ensure ex ante control and fidelity to the enacting coalition\u2019s will. While much literature has offered alternative accounts, no study has considered the internal logic of this thesis. First, on its own terms, we argue that procedural or structural control works only when there are credible ex post enforcement mechanisms, such as judicial review and appropriations cuts. We highlight legal and institutional limits to these mechanisms. Second, we develop a simple formal model to illustrate that agencies can defy statutory demands when judicial review is unlikely or budgetary cuts threaten administration of programs Congress values. Third, we demonstrate in three case studies, where enforcement is unlikely, how key mechanisms of the procedural control thesis operate consistent with our theory. When Congress dictates agency structure, by specifically legislating statutory reporting lines, as for Chief Information Officers and Equal Employment Opportunity Directors, agency compliance rates remain low. When Congress forces information, such as through congressionally mandated reports, agencies comply only 10% of the time and are more likely to comply with reports Congress is aware of. These case studies show that procedural and structural controls are not self-executing, and depend on credible enforcement. Congress cannot dominate the bureaucracy through statutory design alone."
+    },
+    {
+      "authors": "with Sarah H. Cen, Rishi Bommasani, Daniel E. Ho, and Percy Liang",
+      "title": "Mapping the AI Supply Chain: Tracking Relationships, Partnerships, and Dependencies in the AI Industry",
+      "venue": "",
+      "year": "",
+      "group": "W",
+      "links": [{"label":"Project site","url":"https://aisupplychains.org/"}],
+      "abstract": "The rapid proliferation of artificial intelligence (AI) systems, particularly general-purpose large language models (LLMs), has spawned a complex, interdependent ecosystem of organizations that produce, deploy, and maintain AI systems. This project provides the first real-time, large-scale empirical mapping of the AI supply chain, defined as the network of upstream and downstream relationships that structure how AI resources, products, services, capital, and labor flow. Assembling a novel dataset enables us to analyze how actors interact, how supply chain structures evolve, how economic power concentrates, and where chokepoints and strategic dependencies may emerge. We argue that a detailed understanding of the AI supply chain is essential for AI governance: it highlights bottlenecks in compute, data, talent, and model access; clarifies responsibilities and potential liabilities; enhances market transparency; and enables policymakers to anticipate systemic vulnerabilities."
+    },
+    {
+      "authors": "with Marina Agranov and Alexander Hirsch",
+      "title": "An Experimental Study of Delegation",
+      "venue": "",
+      "year": "",
+      "group": "I",
+      "links": [],
+      "abstract": "The allocation of formal decision-making authority in organizations has a powerful effect on political and economic outcomes. We examine how individuals delegate decision-making authority to a better informed agent in an experimental setting, testing the key theoretical predictions of the canonical Holmstr\u00f6m (1984) delegation model in the lab. While this model has been widely applied to study decision-making within firms and bureaucratic organizations, previous experimental investigations provide only limited insight into its applicability as a model of individual behavior. We develop an experimental interface that more closely approximates the information and choice environment in the model. This innovation allows a more faithful implementation of the model in the decision environment facing the subjects and, therefore, a more complete test of the model."
+    }
+  ]
+}
+</script>
+
+<script>
+const DATA = JSON.parse(document.getElementById('pubdata').textContent);
+const GROUP_ORDER = ["P","W","I"];
+const GROUP_DESC = {
+  P: "Peer-reviewed journal articles and articles in law journals, AI/ethics conference proceedings.",
+  W: "Complete drafts, circulating for comment or under review.",
+  I: "Early-stage projects, not yet ready to circulate."
+};
+
+let query = "";
+
+function buildStats(){
+  const el = document.getElementById('stats');
+  const total = DATA.pubs.length;
+  const peer = DATA.pubs.filter(p=>p.group==='P').length;
+  const working = DATA.pubs.filter(p=>p.group==='W').length;
+  const inprog = DATA.pubs.filter(p=>p.group==='I').length;
+  el.innerHTML = `
+    <div class="stat"><span class="stat-num">${total}</span><span class="stat-label">Total items</span></div>
+    <div class="stat"><span class="stat-num">${peer}</span><span class="stat-label">Publications</span></div>
+    <div class="stat"><span class="stat-num">${working}</span><span class="stat-label">Working papers</span></div>
+    <div class="stat"><span class="stat-num">${inprog}</span><span class="stat-label">In progress</span></div>
+  `;
+}
+
+function matches(pub){
+  if(query.trim().length>0){
+    const q = query.trim().toLowerCase();
+    const hay = (pub.title + " " + pub.authors + " " + pub.venue).toLowerCase();
+    if(!hay.includes(q)) return false;
+  }
+  return true;
+}
+
+function render(){
+  const main = document.getElementById('main');
+  const toc = document.getElementById('toc');
+  toc.querySelectorAll('.toc-item').forEach(n=>n.remove());
+  main.innerHTML = "";
+
+  let anyResults = false;
+  let idx = 0;
+
+  GROUP_ORDER.forEach(code=>{
+    idx++;
+    const groupPubs = DATA.pubs.filter(p=>p.group===code).filter(matches);
+    const label = DATA.groups[code];
+    const numStr = String(idx).padStart(2,'0');
+
+    const tocItem = document.createElement('a');
+    tocItem.href = `#group-${code}`;
+    tocItem.className = 'toc-item';
+    tocItem.dataset.group = code;
+    tocItem.style.opacity = groupPubs.length===0 ? '.35' : '1';
+    tocItem.innerHTML = `<span class="toc-num">${numStr}</span><span class="toc-label">${label}</span><span class="toc-count">${groupPubs.length}</span>`;
+    toc.appendChild(tocItem);
+
+    if(groupPubs.length===0) return;
+    anyResults = true;
+
+    const section = document.createElement('section');
+    section.className = 'group-section';
+    section.id = `group-${code}`;
+
+    const head = document.createElement('div');
+    head.innerHTML = `
+      <div class="group-head">
+        <span class="group-index">${numStr}</span>
+        <h2 class="group-title">${label}</h2>
+      </div>
+      <p class="group-desc">${GROUP_DESC[code]}</p>
+    `;
+    section.appendChild(head);
+
+    const list = document.createElement('div');
+    list.className = 'pub-list';
+    groupPubs.forEach(p=>{
+      const row = document.createElement('div');
+      row.className = 'pub';
+      const links = (p.links||[]).map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join("");
+      const statusTag = p.status ? `<span class="tag tag-status">${p.status}</span>` : "";
+      row.innerHTML = `
+        <div class="pub-date">${p.year||""}</div>
+        <div>
+          ${p.authors ? `<p class="pub-authors">${p.authors}</p>` : ""}
+          <h3 class="pub-title">${p.title}</h3>
+          ${p.venue ? `<p class="pub-venue">${p.venue}</p>` : ""}
+          <div class="pub-meta">${statusTag}</div>
+          ${links ? `<div class="pub-links">${links}</div>` : ""}
+          ${p.abstract ? `<p class="pub-abstract">${p.abstract}</p>` : ""}
+        </div>
+      `;
+      list.appendChild(row);
+    });
+    section.appendChild(list);
+    main.appendChild(section);
+  });
+
+  if(!anyResults){
+    main.innerHTML = `<div class="empty-state">No publications match this search.</div>`;
+  }
+
+  setupScrollSpy();
+}
+
+function setupScrollSpy(){
+  const sections = Array.from(document.querySelectorAll('.group-section'));
+  const tocItems = Array.from(document.querySelectorAll('.toc-item'));
+  if(sections.length===0) return;
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const id = entry.target.id.replace('group-','');
+      const tocItem = tocItems.find(t=>t.dataset.group===id);
+      if(!tocItem) return;
+      if(entry.isIntersecting){
+        tocItems.forEach(t=>t.classList.remove('active'));
+        tocItem.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -70% 0px', threshold:0});
+  sections.forEach(s=>observer.observe(s));
+}
+
+document.getElementById('search').addEventListener('input', (e)=>{
+  query = e.target.value;
+  render();
+});
+
+buildStats();
+render();
+</script>
+
+</body>
+</html>

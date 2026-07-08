@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lindsey A. Gailmard</title>
+<meta name="description" content="Lindsey A. Gailmard — Research Manager, Regulation, Evaluation, and Governance Lab, Stanford Law School.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff;
+  --panel:#ffffff;
+  --ink:#1c2530;
+  --ink-soft:#4b5563;
+  --hairline:#000000;
+  --hairline-soft:#e0e0e0;
+  --brass:#22406e;
+  --brass-soft:#5b7fa9;
+  --tag-methods:#175E54;
+  --tag-policy:#8C1515;
+  --tag-compliance:#006CB8;
+  --tag-adjudication:#53284F;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass-soft); color:#fff;}
+a{color:inherit;}
+
+/* ---------- TOP NAV ---------- */
+.topnav{border-bottom:1px solid var(--hairline);}
+.topnav-inner{
+  max-width:1240px;
+  margin:0 auto;
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.topnav-name{
+  font-family:'Source Serif 4',serif;
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  color:var(--ink);
+}
+.topnav-links{
+  display:flex;
+  gap:24px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.topnav-links a{
+  text-decoration:none;
+  color:var(--ink-soft);
+  border-bottom:1px solid transparent;
+  padding-bottom:2px;
+  transition:color .15s ease, border-color .15s ease;
+}
+.topnav-links a:hover, .topnav-links a.current{
+  color:var(--brass);
+  border-bottom-color:var(--brass);
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  padding:56px 40px 36px;
+  max-width:1240px;
+  margin:0 auto;
+  border-bottom:1px solid var(--hairline);
+}
+.hero-eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+.hero-eyebrow::before{
+  content:"";
+  width:22px;height:1px;background:var(--brass);
+  display:inline-block;
+}
+h1{
+  font-family:'Source Serif 4',serif;
+  font-weight:600;
+  font-size:clamp(30px,4vw,50px);
+  line-height:1.1;
+  margin:0 0 16px;
+  letter-spacing:-.01em;
+  max-width:20ch;
+}
+h1 em{font-style:italic; color:var(--brass);}
+.hero-sub{
+  font-size:16.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:66ch;
+  margin:0 0 26px;
+}
+.hero-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  border-top:1px solid var(--hairline);
+  margin-top:8px;
+}
+.stat{
+  padding:16px 28px 4px 0;
+  margin-right:28px;
+  border-right:1px solid var(--hairline);
+}
+.stat:last-child{border-right:none;}
+.stat-num{
+  font-family:'Source Serif 4',serif;
+  font-size:26px;
+  font-weight:600;
+  color:var(--ink);
+  display:block;
+}
+.stat-label{
+  font-size:11.5px;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-family:'IBM Plex Mono',monospace;
+}
+
+/* ---------- LAYOUT ---------- */
+.layout{
+  max-width:1240px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:0;
+  align-items:start;
+}
+.sidebar{
+  position:sticky;
+  top:0;
+  align-self:start;
+  padding:32px 24px 40px 40px;
+  height:100vh;
+  overflow-y:auto;
+}
+.sidebar::-webkit-scrollbar{width:6px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--hairline-soft);border-radius:3px;}
+
+.search-wrap{margin-bottom:28px;}
+.search-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+  margin-bottom:8px;
+  display:block;
+}
+#search{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--hairline);
+  background:var(--panel);
+  border-radius:4px;
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .15s ease;
+}
+#search:focus{border-color:var(--brass);}
+
+nav.toc{border-top:1px solid var(--hairline); padding-top:20px;}
+.toc-title{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+  margin-bottom:12px;
+  display:block;
+}
+.toc-item{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  padding:9px 10px;
+  margin:0 -10px 2px;
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+  border-left:2px solid transparent;
+  transition:background .15s ease, border-color .15s ease;
+}
+.toc-item:hover{background:rgba(34,64,110,.08);}
+.toc-item.active{
+  border-left:2px solid var(--brass);
+  background:rgba(34,64,110,.1);
+}
+.toc-num{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--brass);
+  flex-shrink:0;
+  width:16px;
+}
+.toc-label{
+  font-size:13.5px;
+  line-height:1.35;
+  color:var(--ink);
+  flex:1;
+}
+.toc-count{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--ink-soft);
+  flex-shrink:0;
+}
+
+/* sidebar profile block used on About page */
+.profile-block{margin-bottom:28px;}
+.profile-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border:1px solid var(--hairline);
+  border-radius:4px;
+  margin-bottom:16px;
+}
+.profile-contact{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.profile-contact a{
+  text-decoration:none;
+  border-bottom:1px solid var(--hairline-soft);
+  color:var(--ink);
+  width:fit-content;
+}
+.profile-contact a:hover{border-bottom-color:var(--brass); color:var(--brass);}
+
+/* ---------- MAIN ---------- */
+main{
+  padding:32px 40px 120px 32px;
+  border-left:1px solid var(--hairline);
+  min-height:100vh;
+}
+.group-section{margin-bottom:56px;scroll-margin-top:24px;}
+.group-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:6px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--hairline);
+}
+.group-index{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  color:var(--brass);
+}
+.group-title{
+  font-family:'Source Serif 4',serif;
+  font-size:24px;
+  font-weight:600;
+  margin:0;
+}
+.group-desc{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin:10px 0 20px;
+  max-width:70ch;
+  line-height:1.55;
+}
+
+.prose{max-width:70ch;}
+.prose p{
+  font-size:15.5px;
+  line-height:1.7;
+  color:var(--ink);
+  margin:0 0 16px;
+}
+.prose p:last-child{margin-bottom:0;}
+
+.interests-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.interests-list li{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  border:1px solid var(--hairline);
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+.cv-download{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  border:1px solid var(--ink);
+  color:var(--ink);
+  padding:11px 18px;
+  border-radius:4px;
+  text-decoration:none;
+  transition:all .15s ease;
+}
+.cv-download:hover{background:var(--ink); color:#fff;}
+
+/* ---------- PUBLICATION ENTRIES ---------- */
+.pub-list{display:flex;flex-direction:column;}
+.pub{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:18px;
+  padding:20px 4px;
+  border-bottom:1px solid var(--hairline-soft);
+}
+.pub:last-child{border-bottom:none;}
+.pub-date{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--ink-soft);
+  padding-top:2px;
+}
+.pub-authors{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin:0 0 4px;
+}
+.pub-authors .me{color:var(--ink); font-weight:600;}
+.pub-title{
+  font-family:'Source Serif 4',serif;
+  font-size:16.5px;
+  font-weight:600;
+  line-height:1.4;
+  margin:0 0 5px;
+}
+.pub-venue{
+  font-size:13.5px;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin:0 0 8px;
+}
+.pub-meta{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:8px;
+}
+.tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  padding:2px 7px;
+  border-radius:3px;
+  color:#fff;
+}
+.tag-status{background:var(--brass);}
+.pub-links{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  display:flex;
+  gap:14px;
+  margin-bottom:8px;
+}
+.pub-links a{
+  color:var(--brass);
+  text-decoration:none;
+  border-bottom:1px solid rgba(34,64,110,.35);
+}
+.pub-links a:hover{border-bottom-color:var(--brass);}
+.pub-abstract{
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:1.65;
+  margin:6px 0 0;
+}
+
+.empty-state{
+  padding:60px 0;
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:14px;
+}
+
+footer{
+  max-width:1240px;
+  margin:0 auto;
+  padding:28px 40px 60px;
+  border-top:1px solid var(--hairline);
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-family:'IBM Plex Mono',monospace;
+}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{position:relative;height:auto;padding:24px 20px 0;}
+  main{border-left:none;padding:24px 20px 100px;}
+  .hero{padding:40px 20px 28px;}
+  .pub{grid-template-columns:1fr;gap:4px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-name" href="index.html">Lindsey A. Gailmard</a>
+    <div class="topnav-links">
+      <a href="index.html" class="current">About</a>
+      <a href="publications.html">Publications</a>
+      <a href="files/cv.pdf">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Research Manager</div>
+  <h1>Lindsey A. Gailmard</h1>
+  <p class="hero-sub">Regulation, Evaluation, and Governance Lab (RegLab) &middot; Stanford Law School.<br>I study how the formal, textual, and procedural structures of administrative law shape &mdash; and constrain &mdash; the power of the state.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">7</span><span class="stat-label">Publications</span></div>
+    <div class="stat"><span class="stat-num">5</span><span class="stat-label">Working papers</span></div>
+    <div class="stat"><span class="stat-num">PhD</span><span class="stat-label">Caltech, Social Science</span></div>
+    <div class="stat"><span class="stat-num">2023</span><span class="stat-label">RegLab since</span></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="profile-block">
+      <div class="profile-contact" id="contact">
+        <a href="mailto:gailmard@stanford.edu">gailmard@stanford.edu</a>
+        <a href="https://reglab.stanford.edu/team-members/lindsey-gailmard/" target="_blank" rel="noopener">RegLab profile</a>
+        <a href="https://scholar.google.com/citations?hl=en&user=VBwSMMIAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+
+    <nav class="toc">
+      <span class="toc-title">On this page</span>
+      <a href="#about" class="toc-item"><span class="toc-label">About</span></a>
+      <a href="#interests" class="toc-item"><span class="toc-label">Research interests</span></a>
+      <a href="#cv" class="toc-item"><span class="toc-label">CV</span></a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="group-section" id="about">
+      <div class="group-head">
+        <span class="group-index">01</span>
+        <h2 class="group-title">About</h2>
+      </div>
+      <div class="prose">
+        <p>I am a Research Manager at the Regulation, Evaluation, Governance Lab (<a href="https://reglab.stanford.edu/" target="_blank" rel="noopener">RegLab</a>) at Stanford University.</p>
+        <p>I study power relations embedded in structures of administrative law. Using quantitative and positive theoretical methods of social science, I show how the formal, textual, and procedural aspects of administrative law structure and channel the power of the state.</p>
+        <p>My dissertation explores strategic limits of the administrative presidency stemming from political appointees&rsquo; dual roles as agents of the president and managers of the bureaucracy. This view of appointee&ndash;careerist relations complicates standard notions of presidential control and bureaucratic power by recognizing that appointees are reliant on presidential support to maintain their position within an administration.</p>
+        <p>Prior to joining RegLab, I completed a Ph.D. in Social Science at the California Institute of Technology, and received a B.A. in Economics and an M.A. in Political Science from UC Berkeley and an M.P.P. from the Harris School of Public Policy Studies at the University of Chicago.</p>
+      </div>
+    </section>
+
+    <section class="group-section" id="interests">
+      <div class="group-head">
+        <span class="group-index">02</span>
+        <h2 class="group-title">Research Interests</h2>
+      </div>
+      <ul class="interests-list">
+        <li>Administrative law</li>
+        <li>Bureaucratic politics</li>
+        <li>Presidential power</li>
+        <li>Political appointees</li>
+        <li>Formal theory</li>
+        <li>AI governance</li>
+        <li>Congressional oversight</li>
+        <li>Agency adjudication</li>
+      </ul>
+    </section>
+
+    <section class="group-section" id="cv">
+      <div class="group-head">
+        <span class="group-index">03</span>
+        <h2 class="group-title">CV</h2>
+      </div>
+      <p class="group-desc" style="margin-bottom:20px;">A full CV with education, publications, and working papers is available for download.</p>
+      <a class="cv-download" href="files/cv.pdf">Download CV (PDF)</a>
+    </section>
+  </main>
+</div>
+
+<footer>
+  Regulation, Evaluation, and Governance Lab &middot; Stanford Law School &middot; 559 Nathan Abbott Way &middot; Stanford, CA 94305
+</footer>
+
+</body>
+</html>
